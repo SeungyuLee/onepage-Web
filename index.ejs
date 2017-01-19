@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> SMIRNOFF vs ABSOLUT </title>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<link rel="stylesheet" href="assets/main.css" />
+</head>
+<body>
+
+	<!-- Wrapper -->
+		<div id="wrapper">
+			<header id="header">
+				<a href="#wrapper"> <h1> [2017년 조기 대선] <strong>스미노프 vs 앱솔루트, </strong>
+					당신의 선택은?	</h1> </a>
+			</header>
+
+			<section id="main">
+				<section class="votes">
+					<div id="hover">
+						<a href="vote.html">
+							<img src="img/smirnoff.png" alt="" />
+							<h3>스미노프 SMIRNOFF</h3>
+						</a>
+					</div>
+					<div id="hover">
+						<a href="vote.html">
+							<img src="img/absolut.png" alt="" />
+							<h3>앱솔루트 ABSOLUT</h3>
+						</a>
+					</div>
+				</section>
+
+			</section>
+
+			<footer id="footer">
+				<p>&copy; Untitled. All rights reserved. Design: Seunggyu Lee. Images: Unsplash.</p>
+			</footer>
+
+	</div>
+
+<script>
+	/**스크롤이 설정한 높이 이상 내려갔을때 스타일추가하기**/
+	if (jQuery(window).width() > 0) {
+    jQuery(window).on("scroll",function(ev){
+        if(jQuery(window).scrollTop() > 150 ) { /**높이 픽셀 조정**/
+            jQuery('.menu_box').addClass('fixed');  /**위의 높이에서 .fixed 클래스를 추가합니다. 스타일에서 자유롭게 수치 조절 가능합니다.**/
+        }
+        else{
+			jQuery('.menu_box').removeClass('fixed');
+        }
+        return false;
+    });
+	}
+
+	/**마우스 부드럽게 해당위치로 이동**/
+	$(function(){
+	   $('a[href^=#]').click(function() {
+		  var speed = 800;
+		  var href= $(this).attr("href");
+		  var target = $(href == "#" || href == "" ? 'html' : href);
+		  var position = target.offset().top;
+		  $('body,html').animate({scrollTop:position}, speed, 'swing');
+		  return false;
+	   });
+	});
+</script>
+
+</body>
+</html>
